@@ -28,5 +28,89 @@ endif::add-copy-button-to-env-var[]
 |string
 |required icon:exclamation-circle[title=Configuration property is required]
 
+a|icon:lock[title=Fixed at build time] [[quarkus-rage4j_quarkus-rage4j-provider]] [.property-path]##link:#quarkus-rage4j_quarkus-rage4j-provider[`quarkus.rage4j.provider`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.rage4j.provider+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The LLM provider to use for evaluation. Defaults to "openai". Supported values: "openai", "ollama"
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_RAGE4J_PROVIDER+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_RAGE4J_PROVIDER+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|`+++openai+++`
+
+a|icon:lock[title=Fixed at build time] [[quarkus-rage4j_quarkus-rage4j-ollama-base-url]] [.property-path]##link:#quarkus-rage4j_quarkus-rage4j-ollama-base-url[`quarkus.rage4j.ollama-base-url`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.rage4j.ollama-base-url+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The base URL for the Ollama API. Only required when provider is "ollama". Defaults to http://localhost:11434
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_RAGE4J_OLLAMA_BASE_URL+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_RAGE4J_OLLAMA_BASE_URL+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|`+++http://localhost:11434+++`
+
+a|icon:lock[title=Fixed at build time] [[quarkus-rage4j_quarkus-rage4j-chat-model]] [.property-path]##link:#quarkus-rage4j_quarkus-rage4j-chat-model[`quarkus.rage4j.chat-model`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.rage4j.chat-model+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The chat model name to use. Optional, provider-specific defaults will be used if not specified.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_RAGE4J_CHAT_MODEL+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_RAGE4J_CHAT_MODEL+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
+a|icon:lock[title=Fixed at build time] [[quarkus-rage4j_quarkus-rage4j-embedding-model]] [.property-path]##link:#quarkus-rage4j_quarkus-rage4j-embedding-model[`quarkus.rage4j.embedding-model`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.rage4j.embedding-model+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The embedding model name to use. Optional, provider-specific defaults will be used if not specified.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_RAGE4J_EMBEDDING_MODEL+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_RAGE4J_EMBEDDING_MODEL+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|
+
 |===
 

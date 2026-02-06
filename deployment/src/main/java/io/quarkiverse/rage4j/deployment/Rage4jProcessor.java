@@ -38,7 +38,12 @@ class Rage4jProcessor {
     @Record(ExecutionTime.RUNTIME_INIT)
     void setApiKey(ApiKeyHolderRecorder apiKeyHolderRecorder,
             Rage4jConfiguration rage4jConfiguration) {
-        apiKeyHolderRecorder.initApiKey(rage4jConfiguration.apiKey());
+        apiKeyHolderRecorder.initApiKey(
+                rage4jConfiguration.apiKey(),
+                rage4jConfiguration.provider(),
+                rage4jConfiguration.ollamaBaseUrl(),
+                rage4jConfiguration.chatModel(),
+                rage4jConfiguration.embeddingModel());
     }
 
     @BuildStep
