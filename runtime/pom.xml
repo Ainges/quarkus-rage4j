@@ -28,10 +28,12 @@
             <version>2.0.0</version>
             <scope>compile</scope>
         </dependency>
+        <!-- LangChain4j ollama - provided scope as users will have their own langchain4j dependency -->
         <dependency>
             <groupId>dev.langchain4j</groupId>
             <artifactId>langchain4j-ollama</artifactId>
             <version>1.2.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

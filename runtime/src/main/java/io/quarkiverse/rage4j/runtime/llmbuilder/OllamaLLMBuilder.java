@@ -31,6 +31,7 @@ public class OllamaLLMBuilder implements LLMBuilder<OllamaLLMBuilder> {
 
     @Override
     public RageAssert fromApiKey(String apiKey) {
+        // API key is not used by Ollama, but required by the interface
         OllamaChatModel chatModel = OllamaChatModel.builder()
                 .baseUrl(baseUrl)
                 .modelName(chatModelName)
