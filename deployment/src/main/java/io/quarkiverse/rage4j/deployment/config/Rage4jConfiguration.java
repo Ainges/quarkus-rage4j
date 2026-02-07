@@ -19,7 +19,7 @@ public interface Rage4jConfiguration {
 
     /**
      * The LLM provider to use for the judge model evaluation. Defaults to "openai".
-     * Supported values: "openai", "ollama"
+     * Supported values: "openai", "ollama".
      * Note: This configures the judge model, not your application's AI service.
      * Your application's AI service is configured separately via quarkus.langchain4j.* properties.
      */

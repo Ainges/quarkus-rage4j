@@ -36,7 +36,7 @@ endif::add-copy-button-to-config-props[]
 
 [.description]
 --
-The LLM provider to use for the judge model evaluation. Defaults to "openai". Supported values: "openai", "ollama" Note: This configures the judge model, not your application's AI service. Your application's AI service is configured separately via quarkus.langchain4j.++*++ properties.
+The LLM provider to use for the judge model evaluation. Defaults to "openai". Supported values: "openai", "ollama". Note: This configures the judge model, not your application's AI service. Your application's AI service is configured separately via quarkus.langchain4j.++*++ properties.
 
 
 ifdef::add-copy-button-to-env-var[]

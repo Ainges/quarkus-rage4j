@@ -46,10 +46,10 @@ class SeparateModelConfigurationTest {
         // These are optional and provider-specific defaults are used if not specified
 
         // In this test setup, no custom models are specified, so these should be empty
-        assertTrue(apiKeyHolder.getChatModel().isEmpty() || apiKeyHolder.getChatModel().isPresent(),
-                "Chat model configuration should be available");
-        assertTrue(apiKeyHolder.getEmbeddingModel().isEmpty() || apiKeyHolder.getEmbeddingModel().isPresent(),
-                "Embedding model configuration should be available");
+        assertTrue(apiKeyHolder.getChatModel().isEmpty(),
+                "Chat model should not be configured when not specified in application.properties");
+        assertTrue(apiKeyHolder.getEmbeddingModel().isEmpty(),
+                "Embedding model should not be configured when not specified in application.properties");
     }
 
     @Test
