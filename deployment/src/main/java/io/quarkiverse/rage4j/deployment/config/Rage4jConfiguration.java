@@ -11,31 +11,40 @@ import io.smallrye.config.WithDefault;
 @ConfigRoot(phase = ConfigPhase.BUILD_TIME)
 public interface Rage4jConfiguration {
     /**
-     * This apikey is used to call the LLM Api, it is always required.
+     * This apikey is used to call the LLM Api for the judge model, it is always required.
+     * Note: This is separate from the API key used by your application's AI service
+     * (configured via quarkus.langchain4j.* properties).
      */
     String apiKey();
 
     /**
-     * The LLM provider to use for evaluation. Defaults to "openai".
-     * Supported values: "openai", "ollama"
+     * The LLM provider to use for the judge model evaluation. Defaults to "openai".
+     * Supported values: "openai", "ollama".
+     * Note: This configures the judge model, not your application's AI service.
+     * Your application's AI service is configured separately via quarkus.langchain4j.* properties.
      */
     @WithDefault("openai")
     String provider();
 
     /**
-     * The base URL for the Ollama API. Only required when provider is "ollama".
+     * The base URL for the Ollama API when using Ollama as the judge model provider.
+     * Only required when provider is "ollama".
      * Defaults to http://localhost:11434
      */
     @WithDefault("http://localhost:11434")
     String ollamaBaseUrl();
 
     /**
-     * The chat model name to use. Optional, provider-specific defaults will be used if not specified.
+     * The chat model name to use for the judge model.
+     * Optional, provider-specific defaults will be used if not specified.
+     * This is the model that will evaluate your AI service's responses.
      */
     Optional<String> chatModel();
 
     /**
-     * The embedding model name to use. Optional, provider-specific defaults will be used if not specified.
+     * The embedding model name to use for the judge model.
+     * Optional, provider-specific defaults will be used if not specified.
+     * This is used by the judge for semantic similarity calculations.
      */
     Optional<String> embeddingModel();
 }
