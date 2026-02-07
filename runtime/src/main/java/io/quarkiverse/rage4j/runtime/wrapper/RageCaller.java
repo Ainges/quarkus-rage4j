@@ -32,6 +32,8 @@ public class RageCaller {
 
     @PostConstruct
     void initializeRageAssert() {
+        // Initialize the Judge Model (used to evaluate AI service responses)
+        // This is configured separately from the executing model via quarkus.rage4j.* properties
         String apiKey = apiKeyHolder.getApiKey();
         String provider = apiKeyHolder.getProvider();
 
