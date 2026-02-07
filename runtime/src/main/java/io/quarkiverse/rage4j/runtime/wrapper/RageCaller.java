@@ -4,12 +4,14 @@ import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+import dev.rage4j.asserts.LLMBuilder;
 import dev.rage4j.asserts.RageAssert;
 import dev.rage4j.asserts.RageAssertTestCaseAssertions;
 import dev.rage4j.asserts.openai.OpenAiLLMBuilder;
 import io.quarkiverse.rage4j.runtime.AIMethodInvoker;
 import io.quarkiverse.rage4j.runtime.holder.AIMethodHolder;
 import io.quarkiverse.rage4j.runtime.holder.ApiKeyHolder;
+import io.quarkiverse.rage4j.runtime.llmbuilder.OllamaLLMBuilder;
 
 @ApplicationScoped
 public class RageCaller {
@@ -31,7 +33,23 @@ public class RageCaller {
     @PostConstruct
     void initializeRageAssert() {
         String apiKey = apiKeyHolder.getApiKey();
-        rageAssert = new OpenAiLLMBuilder().fromApiKey(apiKey);
+        String provider = apiKeyHolder.getProvider();
+
+        LLMBuilder<?> builder;
+
+        if ("ollama".equalsIgnoreCase(provider)) {
+            String baseUrl = apiKeyHolder.getOllamaBaseUrl();
+            builder = new OllamaLLMBuilder(baseUrl);
+        } else {
+            // Default to OpenAI
+            builder = new OpenAiLLMBuilder();
+        }
+
+        // Apply custom model names if provided
+        apiKeyHolder.getChatModel().ifPresent(builder::withChatModel);
+        apiKeyHolder.getEmbeddingModel().ifPresent(builder::withEmbeddingModel);
+
+        rageAssert = builder.fromApiKey(apiKey);
     }
 
     public RageCaller assertFaithfulness() {
